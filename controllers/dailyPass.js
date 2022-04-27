@@ -2,6 +2,8 @@ const { dailyPassCrud, DailyPass } = require("../models/DailyPass");
 const { NotFoundError } = require("prattask-cmmn");
 const axios = require("axios").default;
 
+const ContentURL = 'https://content-service-b8uve1wzh-k-kumar-01.vercel.app/'
+
 exports.pushNewSeries = async (req, res, next) => {
   try {
     const seriesData = req.body.series;
@@ -24,7 +26,7 @@ exports.pushNewUser = async (req, res, next) => {
   try {
     const userId = req.body.user_id;
     const seriesData = await axios.get(
-      "http://localhost:3000/series/all?selectOpts=_id chapters.name"
+      `${ContentURL}series/all?selectOpts=_id chapters.name`
     );
     const modifiedSeriesData = seriesData.data.data.map((series) => {
       return {
