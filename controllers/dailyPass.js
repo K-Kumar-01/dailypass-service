@@ -2,7 +2,7 @@ const { dailyPassCrud, DailyPass } = require("../models/DailyPass");
 const { NotFoundError } = require("prattask-cmmn");
 const axios = require("axios").default;
 
-const ContentURL = 'https://content-service-b8uve1wzh-k-kumar-01.vercel.app/'
+const ContentURL = 'https://content-service.vercel.app/'
 
 exports.pushNewSeries = async (req, res, next) => {
   try {
